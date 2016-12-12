@@ -1,0 +1,38 @@
+<h1>彼女シミュレーター</h1>
+<div id="count">
+</div>
+    <script src="./audioManager.min.js"></script>
+    <script>
+        var manager;
+        var count = 1;
+        var flag = 0;
+        window.onload = function() {
+            manager = (new AudioManager({
+                useMicrophone   : true,
+                onEnterFrame    : function() {
+                    if(Utils.sum(this.analysers.mic.getByteFrequencyData())>100000){
+                        if(flag==0){
+                            console.log(Utils.sum(this.analysers.mic.getByteFrequencyData()));
+                            document.getElementById('count').innerHTML = ("カウント数:" + count);
+                            count++;
+                            statusStop  = setInterval(moneyStop , 1); //ボタンを押した直後に①を呼び出し
+                            statusStart = setInterval(moneyStart , 600); //ボタンを押して0.6秒後に②を呼び出し
+                        }else{
+                            console.log("多重カウント");
+                        }
+
+                    }
+                }
+            })).init();
+        };
+        function moneyStop(){ //①
+            flag=1;
+        clearInterval(statusStop);
+        }
+
+        function moneyStart(){  //②
+            flag=0;
+        clearInterval(statusStart);
+        }
+
+    </script>
