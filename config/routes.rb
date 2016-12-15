@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :setting, only: :index
+  root 'setting#index'
+  resources :setting, only: [:index, :create]
 end
