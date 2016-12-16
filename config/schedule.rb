@@ -1,3 +1,4 @@
+env :PATH, ENV['PATH']
 set :output, 'log/whenever.log'
 set :environment, ENV['RAILS_ENV']
 
