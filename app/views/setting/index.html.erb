@@ -35,12 +35,17 @@
                             count++;
                             statusStop  = setInterval(moneyStop , 1); //ボタンを押した直後に①を呼び出し
                             statusStart = setInterval(moneyStart , 600); //ボタンを押して0.6秒後に②を呼び出し
-                            $fn_hop()
                             $.ajax({
                                 type: "POST",
                                 url: "/setting",
                                 dataType: "script"
                             });
+                            let f = 1
+                            if(f == 1){
+                            $fn_hop()
+                            f++
+                            }
+                            
                         }else{
                             console.log("多重カウント");
                         }
@@ -65,12 +70,12 @@
             $('.expression-smile').addClass('is-show');
             $('.main').toggleClass('is-hop');
             count++
-            var id = setTimeout($fn_hop, 100);
+            var id = setTimeout($fn_hop, 200);
             if (count > 3) {　
                 clearTimeout(id);　 //idをclearTimeoutで指定している
                 count = 0;
-                $('.expression-normal').toggleClass('is-hide');
                 $('.expression-smile').toggleClass('is-show');
+                $('.expression-normal').toggleClass('is-hide');
             }
         }
         $('#is-hop').on('click', function() {
