@@ -4,7 +4,6 @@
 </head>
 <h1>彼女シミュレーター</h1>
 <div id="count">
-</div>
     <div class="main">
         <%= image_tag("everyday.png") %>
         <div class="expression">
@@ -20,6 +19,7 @@
     <button type="button" id="is-hop">aa</button>
     <button type="button" id="is-smile">bb</button>
     <button type="button" id="is-item-show">cc</button>
+</div>
     <script>
         var manager;
         var count = 1;
@@ -30,8 +30,8 @@
                 onEnterFrame    : function() {
                     if(Utils.sum(this.analysers.mic.getByteFrequencyData())>100000){
                         if(flag==0){
-                            console.log(Utils.sum(this.analysers.mic.getByteFrequencyData()));
-                            document.getElementById('count').innerHTML = ("カウント数:" + count);
+                            //console.log(Utils.sum(this.analysers.mic.getByteFrequencyData()));
+                            //document.getElementById('count').innerHTML = ("カウント数:" + count);
                             count++;
                             statusStop  = setInterval(moneyStop , 1); //ボタンを押した直後に①を呼び出し
                             statusStart = setInterval(moneyStart , 600); //ボタンを押して0.6秒後に②を呼び出し
@@ -40,12 +40,6 @@
                                 url: "/setting",
                                 dataType: "script"
                             });
-                            let f = 1
-                            if(f == 1){
-                            $fn_hop()
-                            f++
-                            }
-                            
                         }else{
                             console.log("多重カウント");
                         }
@@ -61,31 +55,23 @@
 
         function moneyStart(){  //②
             flag=0;
+            $fn_hop()
         clearInterval(statusStart);
         }
-        var count = 0;
-
+        var cnt = 0;
         var $fn_hop = function() {
             $('.expression-normal').addClass('is-hide');
             $('.expression-smile').addClass('is-show');
             $('.main').toggleClass('is-hop');
-            count++
+            cnt++
             var id = setTimeout($fn_hop, 200);
-            if (count > 3) {　
+            if (cnt > 3) {　
                 clearTimeout(id);　 //idをclearTimeoutで指定している
-                count = 0;
+                cnt = 0;
                 $('.expression-smile').toggleClass('is-show');
                 $('.expression-normal').toggleClass('is-hide');
             }
         }
-        $('#is-hop').on('click', function() {
-            $fn_hop()
-        });
-
-        $('#is-smile').on('click', function() {
-            $('.expression-normal').toggleClass('is-hide');
-            $('.expression-smile').toggleClass('is-show');
-        })
 
         $('#is-item-show').on('click', function() {
             $('.item1').toggleClass('is-hide');
