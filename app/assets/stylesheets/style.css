@@ -33,6 +33,10 @@
     display: none;
 }
 
+.str-box {
+    transition: all .4s;
+}
+
 .is-show {
     display: block;
 }

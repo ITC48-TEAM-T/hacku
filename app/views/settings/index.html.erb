@@ -12,9 +12,11 @@
              <%= image_tag("item1.png", :class=>"item1") %>
         </div>
     </div>
+    <p class="str-box"></p>
     <button type="button" id="is-hop">aa</button>
     <button type="button" id="is-smile">bb</button>
     <button type="button" id="is-item-show">cc</button>
+    <button type="button" id="is-str-show">dd</button>
 </div>
     <script>
         var manager;
@@ -39,7 +41,6 @@
                         }else{
                             console.log("多重カウント");
                         }
-
                     }
                 }
             })).init();
@@ -68,6 +69,22 @@
                 $('.expression-normal').toggleClass('is-hide');
             }
         }
+        var str = "アイウエオカキクケコ"
+        $('#is-str-show').on('click',function(){
+            $('.str-box').empty()
+                var txtArr = str.split("");
+                var count = 0;
+
+                var txtCount = function() {
+                    var timer = setTimeout(txtCount, 150);
+                    $('.str-box').append(txtArr[count]);
+                    count++;
+                    if (count == txtArr.length) {
+                        clearTimeout(timer);
+                    }
+                }
+                txtCount();
+        })
 
         $('#is-hop').on('click',function(){
             $fn_hop()
