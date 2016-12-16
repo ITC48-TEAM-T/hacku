@@ -73,6 +73,15 @@
             }
         }
 
+        $('#is-hop').on('click',function(){
+            $fn_hop()
+        })
+
+        $('#is-smile').on('click',function(){
+            $('.expression-smile').toggleClass('is-show');
+            $('.expression-normal').toggleClass('is-hide');
+        })
+
         $('#is-item-show').on('click', function() {
             $('.item1').toggleClass('is-hide');
         })
