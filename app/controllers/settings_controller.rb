@@ -1,4 +1,4 @@
-class SettingController < ApplicationController
+class SettingsController < ApplicationController
   def index
   end
 
