@@ -1,6 +1,25 @@
+<html>
+<head>
+
+</head>
 <h1>彼女シミュレーター</h1>
 <div id="count">
 </div>
+    <div class="main">
+        <%= image_tag("everyday.png") %>
+        <div class="expression">
+            <%= image_tag("expression-normal.png", :class=>"expression-normal") %>
+            <%= image_tag("expression-smile", :class=>"expression-smile") %>
+            <%= image_tag("expression-blink.png", :class=>"expression-blink") %>
+            <%= image_tag("expression-worry.png", :class=>"expression-worry") %>
+        </div>
+        <div class="item">
+             <%= image_tag("item1.png", :class=>"item1") %>
+        </div>
+    </div>
+    <button type="button" id="is-hop">aa</button>
+    <button type="button" id="is-smile">bb</button>
+    <button type="button" id="is-item-show">cc</button>
     <script>
         var manager;
         var count = 1;
@@ -16,7 +35,7 @@
                             count++;
                             statusStop  = setInterval(moneyStop , 1); //ボタンを押した直後に①を呼び出し
                             statusStart = setInterval(moneyStart , 600); //ボタンを押して0.6秒後に②を呼び出し
-
+                            $fn_hop()
                             $.ajax({
                                 type: "POST",
                                 url: "/setting",
@@ -39,5 +58,32 @@
             flag=0;
         clearInterval(statusStart);
         }
+        var count = 0;
 
+        var $fn_hop = function() {
+            $('.expression-normal').addClass('is-hide');
+            $('.expression-smile').addClass('is-show');
+            $('.main').toggleClass('is-hop');
+            count++
+            var id = setTimeout($fn_hop, 100);
+            if (count > 3) {　
+                clearTimeout(id);　 //idをclearTimeoutで指定している
+                count = 0;
+                $('.expression-normal').toggleClass('is-hide');
+                $('.expression-smile').toggleClass('is-show');
+            }
+        }
+        $('#is-hop').on('click', function() {
+            $fn_hop()
+        });
+
+        $('#is-smile').on('click', function() {
+            $('.expression-normal').toggleClass('is-hide');
+            $('.expression-smile').toggleClass('is-show');
+        })
+
+        $('#is-item-show').on('click', function() {
+            $('.item1').toggleClass('is-hide');
+        })
     </script>
+</html>

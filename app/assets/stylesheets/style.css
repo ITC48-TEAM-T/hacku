@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    position: relative;
+    max-width: 1280px;
+    max-height: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+}
+
+.main img {
+    width: 460px;
+    height: 580px;
+}
+
+.is-hop {
+    transform: translate3d(0, -50px, 0);
+    transition: all .3s;
+}
+
+.expression,
+.item {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.expression-smile,
+.expression-blink,
+.expression-worry {
+    display: none;
+}
+
+.is-show {
+    display: block;
+}
+
+.is-hide {
+    display: none;
+}
