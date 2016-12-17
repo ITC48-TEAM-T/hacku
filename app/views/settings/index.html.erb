@@ -32,18 +32,19 @@
             <%= f.text_field :name, class: 'name_form none' %>
             <h1 class="name"><%= @user.name %></h1><p>ちゃん</p>
           <% end %>
-          
+
           <div class="balance">
           <h2 class="title">心<br>配<br>度</h2>
             <% for index in 0..@worry_count do %>
+                <% if index != 0 %>
                 <div class="gage payment" id="gage<%= index %>"></div>
+                <% end %>
             <% end %>
+            <% if @worry_count < 5 %>
             <% for index in @worry_count..4 %>
+                <div class="gage" id="gage<%= index %>"></div>
             <% end %>
-            <div class="gage payment" id="gage2"></div>
-            <div class="gage payment" id="gage3"></div>
-            <div class="gage" id="gage4"></div>
-            <div class="gage" id="gage5"></div>
+            <% end%>
           </div>
         </div>
         <div class="log">
@@ -64,7 +65,7 @@
     </div>
   </div>
 
-    <p class="str-box"></p>
+    <p class="str-box"><%= @worry_count %></p>
     <button type="button" id="is-hop">aa</button>
     <button type="button" id="is-smile">bb</button>
     <button type="button" id="is-item-show">cc</button>
