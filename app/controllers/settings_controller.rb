@@ -1,6 +1,7 @@
 class SettingsController < ApplicationController
   def index
-    @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)]
+    @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, 'foo')
+    @user = User.find_or_create_by(id: 1)
   end
 
   def create
