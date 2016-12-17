@@ -1,6 +1,14 @@
 <h1>彼女シミュレーター</h1>
-<div id="count">
-    <div class="main">
+<div class="atm-panel">
+    <div class="main-window">
+      <div class="messege-window">
+        <%= image_tag("messege.png") %>
+        <div class="messege-range">
+          <div class="messege">説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明
+          </div>
+        </div>
+      </div>
+      <div class="payee">
         <%= image_tag("everyday.png") %>
         <div class="expression">
             <%= image_tag("expression-normal.png", :class=>"expression-normal") %>
@@ -11,18 +19,49 @@
         <div class="item">
              <%= image_tag("item1.png", :class=>"item1") %>
         </div>
+      </div>
     </div>
+    <div class="side-window">
+      <div class="menu">
+        <div class="payee-info">
+          <h1 class="name">ゆうり</h1><p>ちゃん</p>
+          <div class="balance">
+          <h2 class="title">心<br>配<br>度</h2>
+            <div class="gage payment" id="gage1"></div>
+            <div class="gage payment" id="gage2"></div>
+            <div class="gage payment" id="gage3"></div>
+            <div class="gage" id="gage4"></div>
+            <div class="gage" id="gage5"></div>
+          </div>
+        </div>
+        <div class="log">
+          <div class="log-window">
+           <p>▽  説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明
+           </p>
+           <p>
+           ▽  説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明
+           </p>
+          </div>
+        </div>
+      </div>
+      <div class="withdrawal">
+        <button type="button" name="withdrawal">お別れする…</button>
+      </div>
+    </div>
+  </div>
+
     <p class="str-box"></p>
     <button type="button" id="is-hop">aa</button>
     <button type="button" id="is-smile">bb</button>
     <button type="button" id="is-item-show">cc</button>
     <button type="button" id="is-str-show">dd</button>
-</div>
+    <button type="button" id="is-blink">ee</button>
     <script>
         var manager;
         var count = 1;
         var flag = 0;
         window.onload = function() {
+            blink();
             manager = (new AudioManager({
                 useMicrophone   : true,
                 onEnterFrame    : function() {
@@ -69,7 +108,7 @@
                 $('.expression-normal').toggleClass('is-hide');
             }
         }
-        var str = "アイウエオカキクケコ"
+        var str = "あいうえおかきくけこ"
         $('#is-str-show').on('click',function(){
             $('.str-box').empty()
                 var txtArr = str.split("");
@@ -86,8 +125,20 @@
                 txtCount();
         })
 
+          var blink = function(){
+            var rand = (Math.floor( Math.random() * 100 ) + 1)*100 ;
+            $('.expression-normal').toggleClass('is-hide');
+            $('.expression-blink').toggleClass('is-show');
+                setTimeout(blink, rand);
+            } 
+
         $('#is-hop').on('click',function(){
             $fn_hop()
+        })
+
+        $('#is-blink').on('click',function(){
+            $('.expression-normal').toggleClass('is-hide');
+            $('.expression-blink').toggleClass('is-show');
         })
 
         $('#is-smile').on('click',function(){
