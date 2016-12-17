@@ -10,7 +10,7 @@ module AddGauge
 
     def self.add
       worry = Worry.find_or_create_by(id: 1)
-      worry.count += 1
+      worry.count += 1 if worry.count < 5
       worry.save
     end
   end
