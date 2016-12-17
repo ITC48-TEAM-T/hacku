@@ -1,5 +1,5 @@
 <h1>Automatic Temptation Moneybox</h1>
-<div class="atm-panel">
+<div class="atm-panel" data-count="<%=@saving%>">
     <div class="main-window">
       <div class="messege-window">
         <%= image_tag("messege.png") %>
@@ -11,6 +11,7 @@
       </div>
       <div class="payee">
             <%= image_tag("everyday.png") %>
+            <%#<%= image_tag("everyday2.png" :class="everyday2") %>%>
             <div class="expression">
                 <%= image_tag("expression-normal.png", :class=>"expression-normal") %>
                 <%= image_tag("expression-smile", :class=>"expression-smile") %>
@@ -18,7 +19,19 @@
                 <%= image_tag("expression-worry.png", :class=>"expression-worry") %>
             </div>
             <div class="item">
-                <%= image_tag("item1.png", :class=>"item1") %>
+                <%= image_tag("bracelet_1.png", :class=>"bracelet_1") %>
+                <%= image_tag("bracelet_2.png", :class=>"bracelet_2 is-hide") %>
+                <%= image_tag("earring_1.png", :class=>"earing_1 is-hide") %>
+                <%= image_tag("earring_2.png", :class=>"earing_2 is-hide") %>
+                <%= image_tag("earring_3.png", :class=>"earing_3 is-hide") %>
+                <%= image_tag("hairclip_1.png", :class=>"hairclip_1 is-hide") %>
+                <%= image_tag("hairclip_2.png", :class=>"hairclip_2 is-hide") %>
+                <%= image_tag("neckless_1.png", :class=>"neckless_1 is-hide") %>
+                <%= image_tag("neckless_2.png", :class=>"neckless_2 is-hide") %>
+                <%= image_tag("neckless_3.png", :class=>"neckless_3 is-hide") %>
+                <%= image_tag("neckless_4.png", :class=>"neckless_4 is-hide") %>
+                <%= image_tag("watch_1.png", :class=>"watch_1 is-hide") %>
+                <%= image_tag("watch_2.png", :class=>"watch_2 is-hide") %>
             </div>
             <div class="leg">
                 <%= image_tag("leg.png") %>
@@ -35,8 +48,9 @@
 
           <div class="balance">
           <h2 class="title">心<br>配<br>度</h2>
+          <% @worry_count = 3 %>
             <% for index in 0..@worry_count do %>
-                <% if index != 0 %>
+                <% if index != 0 && index < 6 %>
                 <div class="gage payment" id="gage<%= index %>"></div>
                 <% end %>
             <% end %>
@@ -64,19 +78,17 @@
       </div>
     </div>
   </div>
-
-    <p class="str-box"><%= @worry_count %></p>
-    <button type="button" id="is-hop">aa</button>
-    <button type="button" id="is-smile">bb</button>
-    <button type="button" id="is-item-show">cc</button>
-    <button type="button" id="is-str-show">dd</button>
-    <button type="button" id="is-blink">ee</button>
+   <%= @worry_count %>
     <script>
         var manager;
         var count = 1;
         var flag = 0;
         window.onload = function() {
             blink();
+            let money = $('.atm-panel').data('count')
+            if(money > 50){
+                $('.earing_1').removeClass('is-hide');
+            }
             manager = (new AudioManager({
                 useMicrophone   : true,
                 onEnterFrame    : function() {
@@ -92,6 +104,7 @@
                                 url: "/settings",
                                 dataType: "script"
                             });
+
                         }else{
                             console.log("多重カウント");
                         }

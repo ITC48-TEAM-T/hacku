@@ -5,8 +5,10 @@ class SettingsController < ApplicationController
     @system_messages << YAML.load_file('config/system_message.yml')['present']
     @user = User.find_or_create_by(id: 1)
     @worry_count = Worry.find_or_create_by(id: 1).count
+    @saving =  Saving.find_or_create_by(id: 1).count
     if Saving.find_or_create_by(id: 1).count < 10
-      @image = 
+      @image = 1
+    end
   end
 
   def create
