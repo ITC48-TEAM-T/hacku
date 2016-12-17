@@ -1,5 +1,6 @@
 class SettingsController < ApplicationController
   def index
+    @messages = YAML.load_file('config/message.yml')['nomal']
   end
 
   def create
