@@ -3,6 +3,7 @@ class SettingsController < ApplicationController
     @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, 'foo')
     @user = User.find_or_create_by(id: 1)
     @worry_count = Worry.find_or_create_by(id: 1).count
+    @saving =  Saving.find_or_create_by(id: 1).count
   end
 
   def create

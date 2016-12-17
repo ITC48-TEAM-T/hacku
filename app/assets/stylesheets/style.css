@@ -175,8 +175,8 @@ body {
     transition: all .3s;
 }
 
-.expression,
-.item,
+.expression img,
+.item img,
 .leg {
     position: absolute;
     top: 0;
