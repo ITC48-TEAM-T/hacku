@@ -9,16 +9,16 @@
         </div>
       </div>
       <div class="payee">
-        <%= image_tag("everyday.png") %>
-        <div class="expression">
-            <%= image_tag("expression-normal.png", :class=>"expression-normal") %>
-            <%= image_tag("expression-smile", :class=>"expression-smile") %>
-            <%= image_tag("expression-blink.png", :class=>"expression-blink") %>
-            <%= image_tag("expression-worry.png", :class=>"expression-worry") %>
-        </div>
-        <div class="item">
-             <%= image_tag("item1.png", :class=>"item1") %>
-        </div>
+            <%= image_tag("everyday.png") %>
+            <div class="expression">
+                <%= image_tag("expression-normal.png", :class=>"expression-normal") %>
+                <%= image_tag("expression-smile", :class=>"expression-smile") %>
+                <%= image_tag("expression-blink.png", :class=>"expression-blink") %>
+                <%= image_tag("expression-worry.png", :class=>"expression-worry") %>
+            </div>
+            <div class="item">
+                <%= image_tag("item1.png", :class=>"item1") %>
+            </div>
       </div>
     </div>
     <div class="side-window">
@@ -98,7 +98,7 @@
         var $fn_hop = function() {
             $('.expression-normal').addClass('is-hide');
             $('.expression-smile').addClass('is-show');
-            $('.main').toggleClass('is-hop');
+            $('.payee').toggleClass('is-hop');
             cnt++
             var id = setTimeout($fn_hop, 200);
             if (cnt > 3) {　
