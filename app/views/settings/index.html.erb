@@ -35,7 +35,11 @@
           
           <div class="balance">
           <h2 class="title">心<br>配<br>度</h2>
-            <div class="gage payment" id="gage1"></div>
+            <% for index in 0..@worry_count do %>
+                <div class="gage payment" id="gage<%= index %>"></div>
+            <% end %>
+            <% for index in @worry_count..4 %>
+            <% end %>
             <div class="gage payment" id="gage2"></div>
             <div class="gage payment" id="gage3"></div>
             <div class="gage" id="gage4"></div>
