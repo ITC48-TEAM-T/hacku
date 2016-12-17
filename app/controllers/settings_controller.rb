@@ -7,5 +7,6 @@ class SettingsController < ApplicationController
     saving = Saving.find_or_create_by(id: 1)
     saving.count += 1
     saving.save
+    redirect_to action: :index
   end
 end
