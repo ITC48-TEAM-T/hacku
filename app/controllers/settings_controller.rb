@@ -7,8 +7,11 @@ class SettingsController < ApplicationController
     @worry_count = Worry.find_or_create_by(id: 1).count
     @saving =  Saving.find_or_create_by(id: 1).count
     if Saving.find_or_create_by(id: 1).count < 10
-      @image = 1
+      @image = 'everyday.png'
+    else
+      @image = 'deat.png'
     end
+
   end
 
   def create
