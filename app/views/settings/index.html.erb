@@ -25,7 +25,11 @@
     <div class="side-window">
       <div class="menu">
         <div class="payee-info">
-          <h1 class="name">ゆうり</h1><p>ちゃん</p>
+          <%= form_for @user, url: users_path, method: :post do |f| %>
+            <%= f.text_field :name, class: 'name_form none' %>
+            <h1 class="name"><%= @user.name %></h1><p>ちゃん</p>
+          <% end %>
+          
           <div class="balance">
           <h2 class="title">心<br>配<br>度</h2>
             <div class="gage payment" id="gage1"></div>
