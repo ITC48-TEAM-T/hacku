@@ -48,17 +48,12 @@
 
           <div class="balance">
           <h2 class="title">心<br>配<br>度</h2>
-          <% @worry_count = 3 %>
-            <% for index in 0..@worry_count do %>
-                <% if index != 0 && index < 6 %>
+            <% for index in 1..@worry_count do %>
                 <div class="gage payment" id="gage<%= index %>"></div>
-                <% end %>
             <% end %>
-            <% if @worry_count < 5 %>
             <% for index in @worry_count..4 %>
                 <div class="gage" id="gage<%= index %>"></div>
             <% end %>
-            <% end%>
           </div>
         </div>
         <div class="log">

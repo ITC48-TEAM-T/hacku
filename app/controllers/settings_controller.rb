@@ -16,7 +16,7 @@ class SettingsController < ApplicationController
     saving.count += 1
     saving.save
     worry = Worry.find_or_create_by(id: 1)
-    worry.count -= 1
+    worry.count -= 1 if worry.count > 0
     worry.save
     redirect_to action: :index
   end
