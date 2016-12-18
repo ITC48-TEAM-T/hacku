@@ -10,7 +10,7 @@ class SettingsController < ApplicationController
     if Saving.find_or_create_by(id: 1).count < 10
       @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, @user.player_name)
     elsif Saving.find_or_create_by(id: 1).count >= 10
-@message = YAML.load_file('config/message.yml')['girlfriend']['nomal'][rand(5)].sub(/name/, @user.player_name)
+      @message = YAML.load_file('config/message.yml')['girlfriend']['nomal'][rand(5)].sub(/name/, @user.player_name)
     end
 
     if Saving.find_or_create_by(id: 1).count < 10
