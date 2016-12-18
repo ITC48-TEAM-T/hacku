@@ -5,8 +5,7 @@ module AddGauge
     def self.check_saving
       saving = Saving.find_or_create_by(id: 1)
       date = Time.now - 24 * 60 * 60
-      Worry.add unless saving.updated_at < date
-      puts 'aaaaaaaaaaaaaaaaaa'
+      Worry.add if saving.updated_at < date
     end
 
     def self.add
