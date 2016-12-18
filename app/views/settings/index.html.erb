@@ -62,7 +62,7 @@
       <% end %>
       <span class='player_name'><%= @user.player_name %></span>
       <div class="withdrawal">
-        <button type="button" name="withdrawal">お別れする…</button>
+        <%= button_to 'お別れする...', setting_path(1), method: 'delete', type: 'button', name: 'withdrawal' %>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@
                             //document.getElementById('count').innerHTML = ("カウント数:" + count);
                             count++;
                             statusStop  = setInterval(moneyStop , 1); //ボタンを押した直後に①を呼び出し
-                            statusStart = setInterval(moneyStart , 600); //ボタンを押して0.6秒後に②を呼び出し
+                            statusStart = setInterval(moneyStart , 1000); //ボタンを押して0.6秒後に②を呼び出し
                             $.ajax({
                                 type: "POST",
                                 url: "/settings",

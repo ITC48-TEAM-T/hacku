@@ -2,5 +2,8 @@
     <%= image_tag(@image) %>
     <div class="wedding-message">
         <p>これまで幸せにしてくれてありがとう<%=@user.player_name%>君・・・いいえ、あ・な・た　♡</p>
+        <div class="withdrawal">
+          <%= button_to 'お別れする...', setting_path(1), method: 'delete', type: 'button', name: 'withdrawal' %>
+        </div>
     </div>
 </div>

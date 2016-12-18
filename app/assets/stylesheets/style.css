@@ -157,9 +157,9 @@ body {
     background-color: #187FC4;
 }
 
-.withdrawal button {
-    width: 40%;
-    margin-top: 20px;
+.button_to input {
+    width: 110px;
+    margin: 20px 30px 0 0;
     padding: 10px;
     background: #CF737A;
     border: 1px solid #DDD;

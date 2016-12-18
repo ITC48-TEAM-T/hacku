@@ -117,4 +117,14 @@ class SettingsController < ApplicationController
     worry.save
     redirect_to action: :index
   end
+
+  def destroy
+    saving = Saving.find_or_create_by(id: 1)
+    saving.count = 0
+    saving.save
+    user = User.find_or_create_by(id: 1)
+    user.incarnation += 1
+    user.save
+    redirect_to action: :index
+  end
 end
