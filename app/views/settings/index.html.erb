@@ -22,12 +22,8 @@
                 <%= image_tag(@bracelet, :class=>"bracelet_1") if @bracelet.present? %>
                 <%= image_tag(@earring, :class=>"earing_1") if @earring.present? %>
                 <%= image_tag(@hairclip, :class=>"hairclip_1") if @hariclip.present? %>
-                <%= image_tag("neckless_1.png", :class=>"neckless_1 is-hide") %>
-                <%= image_tag("neckless_2.png", :class=>"neckless_2 is-hide") %>
-                <%= image_tag("neckless_3.png", :class=>"neckless_3 is-hide") %>
-                <%= image_tag("neckless_4.png", :class=>"neckless_4 is-hide") %>
-                <%= image_tag("watch_1.png", :class=>"watch_1 is-hide") %>
-                <%= image_tag("watch_2.png", :class=>"watch_2 is-hide") %>
+                <%= image_tag(@neckless, :class=>"neckless_1") if @neckless.present? %>
+                <%= image_tag(@watch, :class=>"watch_1") if @watch.present? %>
             </div>
             <div class="leg">
                 <%= image_tag("leg.png") %>
@@ -61,6 +57,10 @@
           </div>
         </div>
       </div>
+      <%= form_for @user, url: users_path, method: :post do |f| %>
+        <%= f.text_field :player_name, class: 'playeref_name_form none' %>
+      <% end %>
+      <span class='player_name'><%= @user.player_name %></span>
       <div class="withdrawal">
         <button type="button" name="withdrawal">お別れする…</button>
       </div>

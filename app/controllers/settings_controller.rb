@@ -1,10 +1,10 @@
 class SettingsController < ApplicationController
   def index
-    @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, 'foo')
+    @user = User.find_or_create_by(id: 1)
+    @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, @user.player_name)
     system_messages = YAML.load_file('config/system_message.yml')
     @system_messages = Array.new
     @system_messages << system_messages['treat']
-    @user = User.find_or_create_by(id: 1)
     @worry_count = Worry.find_or_create_by(id: 1).count
     @saving =  Saving.find_or_create_by(id: 1).count
     if Saving.find_or_create_by(id: 1).count < 10
@@ -27,13 +27,41 @@ class SettingsController < ApplicationController
         @system_messages << system_messages['hairclip']
       elsif Saving.find_or_create_by(id: 1).count == 80
         @system_messages << system_messages['hairclip']
+      elsif Saving.find_or_create_by(id: 1).count == 90
+        @system_messages << system_messages['neckless']
+      elsif Saving.find_or_create_by(id: 1).count == 100
+        @system_messages << system_messages['neckless']
+      elsif Saving.find_or_create_by(id: 1).count == 110
+        @system_messages << system_messages['neckless']
+      elsif Saving.find_or_create_by(id: 1).count == 120
+        @system_messages << system_messages['neckless']
+      elsif Saving.find_or_create_by(id: 1).count == 130
+        @system_messages << system_messages['watch']
+      elsif Saving.find_or_create_by(id: 1).count == 140
+        @system_messages << system_messages['watch']
       end
     end
 
-    if Saving.find_or_create_by(id: 1).count >= 70
-      @hairclip = 'hairclip_1.png'
-    elsif
+    if Saving.find_or_create_by(id: 1).count >= 140
+      @watch = 'watch_2.png'
+    elsif Saving.find_or_create_by(id: 1).count >= 130
+      @watch = 'watch_1.png'
+    end
+
+    if Saving.find_or_create_by(id: 1).count >= 120
+      @neckless = 'neckless_4.png'
+    elsif Saving.find_or_create_by(id: 1).count >= 110
+      @neckless = 'neckless_3.png'
+    elsif Saving.find_or_create_by(id: 1).count >= 100
+      @neckless = 'neckless_2.png'
+    elsif Saving.find_or_create_by(id: 1).count >= 90
+      @neckless = 'neckless_1.png'
+    end
+
+    if Saving.find_or_create_by(id: 1).count >= 80
       @hairclip = 'hairclip_2.png'
+    elsif Saving.find_or_create_by(id: 1).count >= 70
+      @hairclip = 'hairclip_1.png'
     end
 
     if Saving.find_or_create_by(id: 1).count >= 60
