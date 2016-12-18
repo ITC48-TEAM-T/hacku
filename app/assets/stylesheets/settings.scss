@@ -1,3 +1,16 @@
 .none {
   display: none !important;
 }
+
+.player_name {
+  color: #FFF;
+  font-size: 40px;
+  position: relative;
+  top: 40px;
+
+  &:after {
+    content: 'くん';
+    font-size: 25px;
+  }
+}
+

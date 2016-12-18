@@ -1,12 +1,18 @@
 class SettingsController < ApplicationController
   def index
     @user = User.find_or_create_by(id: 1)
-    @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, @user.player_name)
     system_messages = YAML.load_file('config/system_message.yml')
     @system_messages = Array.new
     @system_messages << system_messages['treat']
     @worry_count = Worry.find_or_create_by(id: 1).count
     @saving =  Saving.find_or_create_by(id: 1).count
+
+    if Saving.find_or_create_by(id: 1).count < 10
+      @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, @user.player_name)
+    elsif Saving.find_or_create_by(id: 1).count >= 10
+@message = YAML.load_file('config/message.yml')['girlfriend']['nomal'][rand(5)].sub(/name/, @user.player_name)
+    end
+
     if Saving.find_or_create_by(id: 1).count < 10
       @image = 'everyday.png'
     else
@@ -56,6 +62,11 @@ class SettingsController < ApplicationController
       end
     end
 
+    if Saving.find_or_create_by(id: 1).count >= 150
+      @image = 'wedding.png'
+      render :new
+    end
+
     if Saving.find_or_create_by(id: 1).count >= 140
       @watch = 'watch_2.png'
     elsif Saving.find_or_create_by(id: 1).count >= 130
@@ -92,6 +103,9 @@ class SettingsController < ApplicationController
       @bracelet = 'bracelet_1.png'
     end
 
+  end
+
+  def new
   end
 
   def create
