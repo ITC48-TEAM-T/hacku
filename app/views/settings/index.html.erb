@@ -58,7 +58,7 @@
         </div>
       </div>
       <%= form_for @user, url: users_path, method: :post do |f| %>
-        <%= f.text_field :player_name, class: 'playeref_name_form none' %>
+        <%= f.text_field :player_name, class: 'player_name_form none' %>
       <% end %>
       <span class='player_name'><%= @user.player_name %></span>
       <div class="withdrawal">
@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-   <%= @worry_count %>
+   <%#= @worry_count %>
     <script>
         var manager;
         var count = 1;

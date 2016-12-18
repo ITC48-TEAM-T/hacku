@@ -10,7 +10,7 @@ class SettingsController < ApplicationController
     if Saving.find_or_create_by(id: 1).count < 10
       @message = YAML.load_file('config/message.yml')['friend']['nomal'][rand(5)].sub(/name/, @user.player_name)
     elsif Saving.find_or_create_by(id: 1).count >= 10
-@message = YAML.load_file('config/message.yml')['girlfriend']['nomal'][rand(5)].sub(/name/, @user.player_name)
+      @message = YAML.load_file('config/message.yml')['girlfriend']['nomal'][rand(5)].sub(/name/, @user.player_name)
     end
 
     if Saving.find_or_create_by(id: 1).count < 10
@@ -19,46 +19,46 @@ class SettingsController < ApplicationController
       @image = 'deat.png'
       if Saving.find_or_create_by(id: 1).count == 10
         @system_messages << system_messages['girlfriend']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 20
         @system_messages << system_messages['bracelet']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 30
         @system_messages << system_messages['bracelet']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 40
         @system_messages << system_messages['earring']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 50
         @system_messages << system_messages['earring']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 60
         @system_messages << system_messages['earring']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 70
         @system_messages << system_messages['hairclip']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 80
         @system_messages << system_messages['hairclip']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 90
         @system_messages << system_messages['neckless']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 100
         @system_messages << system_messages['neckless']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 110
         @system_messages << system_messages['neckless']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 120
         @system_messages << system_messages['neckless']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 130
         @system_messages << system_messages['watch']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       elsif Saving.find_or_create_by(id: 1).count == 140
         @system_messages << system_messages['watch']
-        @datetime = Saving.find_or_create_by(id: 1).updated_at
+        @datetime = Saving.find_or_create_by(id: 1).updated_at.strftime("%Y年%m月%d日 %H時%M分")
       end
     end
 

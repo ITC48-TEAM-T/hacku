@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20161218004228) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        default: "ゆうり"
     t.integer  "incarnation", default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "player_name"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "player_name", default: "ひでやす"
   end
 
   create_table "worries", force: :cascade do |t|
