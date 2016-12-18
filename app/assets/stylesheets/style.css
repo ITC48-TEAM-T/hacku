@@ -201,3 +201,47 @@ body {
 .is-hide {
     display: none;
 }
+
+.wedding {
+    background-image: url("/assets/hqdefault.jpg");
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin: auto;
+    padding: 20px 20px 10px;
+    max-width: 1080px;
+    width: 100%;
+    height: 550px;
+    justify-content: center;
+    position: relative;
+}
+
+.wedding img {
+    width: 430px;
+    height: 600px;
+}
+
+.wedding-message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, .4);
+}
+
+.wedding-message p {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
